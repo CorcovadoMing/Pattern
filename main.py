@@ -9,10 +9,19 @@ class A:
     def print_data(self):
         print self.data
 
-obj = Singleton(A).instance(10)
-obj.print_data()
+obj = Singleton.hold(A(10))
 
-another_obj = Singleton.instance()
-another_obj.print_data()
+t = obj.instance()
+t.print_data()
+s = obj.instance()
+s.print_data()
 
-print obj, another_obj
+print t, s
+
+another_obj = Singleton.hold(A(100))
+q = another_obj.instance()
+q.print_data()
+r = another_obj.instance()
+r.print_data()
+
+print q, r

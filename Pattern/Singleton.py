@@ -1,16 +1,19 @@
 __author__ = 'Ming'
 
 class Singleton:
-    _classname = None
-    _instance = None
-
-    def __init__(self, classname=None):
-        Singleton._classname = classname
+    def __init__(self):
+        pass
 
     @classmethod
-    def instance(self, *args, **kwargs):
-        if not Singleton._classname:
+    def hold(cls, ins=None):
+        if not ins:
             raise ValueError
-        elif not Singleton._instance:
-            Singleton._instance = Singleton._classname(*args, **kwargs)
-        return Singleton._instance
+        else:
+            class _Singleton:
+                def __init__(self):
+                    self._instance = ins
+
+                def instance(self):
+                    return self._instance
+
+            return _Singleton()
