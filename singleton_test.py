@@ -1,27 +1,28 @@
 __author__ = 'Ming'
 
-from Pattern import Singleton
+def test():
+    from Pattern import Singleton
 
-class A:
-    def __init__(self, data):
-        self.data = data
+    class A:
+        def __init__(self, data):
+            self.data = data
 
-    def print_data(self):
-        print self.data
+        def print_data(self):
+            print self.data
 
-obj = Singleton.hold(A(10))
+    obj = Singleton.hold(A(10))
 
-t = obj.instance()
-t.print_data()
-s = obj.instance()
-s.print_data()
+    t = obj.instance()
+    t.print_data()
+    s = obj.instance()
+    s.print_data()
 
-print t, s
+    print t, s
 
-another_obj = Singleton.hold(A(100))
-q = another_obj.instance()
-q.print_data()
-r = another_obj.instance()
-r.print_data()
+    another_obj = Singleton.hold(A(100))
+    q = another_obj.instance()
+    q.print_data()
+    r = another_obj.instance()
+    r.print_data()
 
-print q, r
+    print q, r
